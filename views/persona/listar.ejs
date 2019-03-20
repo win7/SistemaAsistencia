@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="text-center"> <%= titulo %> </h4>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th> Nombre </th>
+              <th> Apellidos </th>
+              <th> Edad </th>
+              <th> Acción </th>
+            </tr>
+          </thead>
+          <tbody>
+              <% for(var i = 0; i < persona.length; i++) {
+                  var item = persona[i];
+              %>
+              <tr>
+                <!-- <td><a href="/find_one/<%= item.id %>"> <%= item.id %> </a></td> -->
+                <td> <%= item.nombre %> </td>
+                <td> <%= item.apellidos %> </td>
+                <td> <%= item.edad %> </td>
+                <td>
+                  <a href="/buscar_persona/<%= item.id %>"> Actualizar </a>
+                  /
+                  <a href="/eliminar_persona/<%= item.id %>"> Eliminar </a>
+                </td>
+              </tr>
+              <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

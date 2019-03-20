@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="text-center"> <%= titulo %> </h4>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th> Id </th>
+              <th> Nombre </th>
+              <th> Acción </th>
+            </tr>
+          </thead>
+          <tbody>
+              <% for(var i = 0; i < area.length; i++) {
+                  var item = area[i];
+              %>
+              <tr>
+                <!-- <td><a href="/find_one/<%= item.id %>"> <%= item.id %> </a></td> -->
+                <td> <%= item.id_area %> </td>
+                <td> <%= item.nombre %> </td>
+                <td>
+                  <a href="/buscar_area/<%= item.id %>"> Actualizar </a>
+                  /
+                  <a href="/eliminar_area/<%= item.id %>"> Eliminar </a>
+                </td>
+              </tr>
+              <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
