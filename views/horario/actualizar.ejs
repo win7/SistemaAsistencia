@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<h4 class="text-center"> <%= titulo %> </h4>
+			<form role="form" action="/actualizar_horario" method="post">
+				<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+				<input type="hidden" class="form-control" name="id" value="<%= horario.id %>" hiden>
+				<div class="form-group">
+					<label> Turno </label>
+					<select class="form-control" name="turno" value="<%= horario.turno %>">
+						<% if(horario.turno == "Mañana") { %>
+							<option value="Mañana" selected> Mañana </option>
+						<% } else { %>
+							<option value="Mañana"> Mañana </option>
+						<% } %>
+						<% if(horario.turno == "Tarde") { %>
+							<option value="Tarde" selected> Tarde </option>
+						<% } else { %>
+							<option value="Tarde"> Tarde </option>
+						<% } %>
+						<% if(horario.turno == "Noche") { %>
+							<option value="Noche" selected> Noche </option>
+						<% } else { %>
+							<option value="Noche"> Noche </option>
+						<% } %>
+					</select>
+				</div>
+				<div class="form-group">
+					<label> Hora Entrada </label>
+					<input type="time" class="form-control" name="hora_entrada" value="<%= horario.hora_entrada %>">
+				</div>
+				<div class="form-group">
+					<label> Hora Salida </label>
+					<input type="time" class="form-control" name="hora_salida" value="<%= horario.hora_salida %>">
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary"> Actualizar </button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

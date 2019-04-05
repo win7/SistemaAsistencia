@@ -7,35 +7,35 @@
 
 module.exports = {
     nuevo: function (req, res) {
-        console.log("Nueva area " + JSON.stringify(req.allParams()));
+        console.log("Nueva: Área " + JSON.stringify(req.allParams()));
         return res.view("area/nuevo", {
-            titulo: "Nueva Area"
+            titulo: "Nueva Área"
         });
     },
 
     crear: function (req, res) {
-        console.log("Crear area " + JSON.stringify(req.allParams()));
+        console.log("Crear: Área " + JSON.stringify(req.allParams()));
         Area.create(req.allParams())
         .then(function (_area) {
             return res.redirect("/listar_areas");
         })
         .catch(function (err) {
             return res.view("area/nuevo", {
-                titulo: "Nueva Area",
+                titulo: "Nueva Área",
                 area: req.allParams()
             });
         });
     },
 
     buscar: function (req, res) {
-        console.log("Buscar a una area " + JSON.stringify(req.allParams()));
+        console.log("Buscar: Área " + JSON.stringify(req.allParams()));
         Area.findOne({
             where: {id: req.param("id")}
         })
         .then(function (_area) {
             if (_area) {
                 return res.view("area/actualizar", {
-                    titulo: "Editar area",
+                    titulo: "Editar Área",
                     area: _area
                 });
             } else {
@@ -48,13 +48,13 @@ module.exports = {
     },
 
     listar: function (req, res) {
-        console.log("Listar Personas " + JSON.stringify(req.allParams()));
+        console.log("Listar: Áreas " + JSON.stringify(req.allParams()));
         Area.find({
             sort: "id ASC"
         })
         .then(function (_area) {
             return res.view("area/listar", {
-                titulo: "Listar Areas",
+                titulo: "Listar Áreas",
                 area: _area
             });
         })
@@ -64,7 +64,7 @@ module.exports = {
     },
 
     actualizar: function (req, res) {
-        console.log("Actualizar area " + JSON.stringify(req.allParams()));
+        console.log("Actualizar: Área " + JSON.stringify(req.allParams()));
         Area.update({id: req.param("id")})
         .set(req.allParams())
         .then(function (_area) {
@@ -76,7 +76,7 @@ module.exports = {
     },
 
     eliminar: function (req, res) {
-        console.log("Eliminar Area " + JSON.stringify(req.allParams()));
+        console.log("Eliminar: Área " + JSON.stringify(req.allParams()));
         Area.destroyOne({id: req.param("id")})
         .then(function (_area) {
             return res.redirect("/listar_areas");

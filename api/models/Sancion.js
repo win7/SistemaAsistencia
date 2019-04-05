@@ -12,17 +12,14 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    id_sancion: {
-        type: "number",
-        unique: true,
-        required: true
-    },
     fecha: {
         type: "string",
+        columnType: "DATE",
         required: true
     },
     hora: {
         type: "string",
+        columnType: "TIME",
         required: true
     },
     causa: {
@@ -40,8 +37,9 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
-    asistencia: {
-        model: "Asistencia"
+    personal: {
+        model: "Personal",
+        // unique: true
     }
 
   },

@@ -12,17 +12,15 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    id_asistencia: {
-        type: "number",
-        unique: true,
-        required: true
-    },
+
     fecha: {
         type: "string",
+        columnType: "DATE",
         required: true
     },
     hora: {
         type:"string",
+        columnType: "TIME",
         required: true
     },
 
@@ -38,16 +36,8 @@ module.exports = {
 
     personal: {
         model: "Personal",
-    },
-
-    horario: {
-        model: "Horario",
-    },
-
-    sancion: {
-        model: "sancion"
     }
-
+    
   },
 
 };

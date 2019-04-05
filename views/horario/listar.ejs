@@ -7,22 +7,26 @@
 					<thead>
 						<tr>
 							<th> Id </th>
-							<th> Nombre </th>
+							<th> Turno </th>
+							<th> Hr. Entrada </th>
+							<th> Hr. Salida </th>
 							<th> Acción </th>
 						</tr>
 					</thead>
 					<tbody>
-						<% for(var i = 0; i < area.length; i++) {
-						var item = area[i];
+						<% for(var i = 0; i < horario.length; i++) {
+						var item = horario[i];
 						%>
 						<tr>
 							<!-- <td><a href="/find_one/<%= item.id %>"> <%= item.id %> </a></td> -->
 							<td> <%= item.id %> </td>
-							<td> <%= item.nombre %> </td>
+							<td> <%= item.turno %> </td>
+							<td> <%= item.hora_entrada %> </td>
+							<td> <%= item.hora_salida %> </td>
 							<td>
-								<a href="/buscar_area/<%= item.id %>"> Actualizar </a>
+								<a href="/buscar_horario/<%= item.id %>"> Actualizar </a>
 								/
-								<a href="/eliminar_area/<%= item.id %>"> Eliminar </a>
+								<a href="/eliminar_horario/<%= item.id %>"> Eliminar </a>
 							</td>
 						</tr>
 						<% } %>

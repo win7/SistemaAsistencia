@@ -22,7 +22,7 @@ module.exports = {
         type: "string",
         maxLength: 50
     },
-    apellido: {
+    apellidos: {
         type: "string",
         maxLength: 50
     },
@@ -41,7 +41,7 @@ module.exports = {
     },
     cargo: {
         type: "string",
-        isIn: ["Gerente", "Secretaria", "Asistente", "Personal"]
+        isIn: ["Gerente", "Secretaria", "Asistente"]
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -56,15 +56,21 @@ module.exports = {
     area: {
         model: "Area"
     },
-
-    usuario: {
-        model: "Usuario"
-    },   
-
+    salario: {
+        model: "Salario"
+    },
+    horario: {
+        model: "Horario"
+    },
     asistencias: {
         collection: "Asistencia",
         via: "personal"
+    },
+    sancion: {
+        collection: "Sancion",
+        via: "personal"
     }
+
   },
 
 };

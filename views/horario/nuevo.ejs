@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<h4 class="text-center"> <%= titulo %> </h4>
+			<form role= "form" action="/crear_horario" method="post">
+				<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+				<div class="form-group">
+					<label> Turno </label>
+					<select class="form-control" name="turno">
+						<option value="Mañana"> Mañana </option>
+						<option value="Tarde"> Tarde </option>
+						<option value="Noche"> Noche </option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label> Hora Entrada </label>
+					<input type="time" class="form-control" name="hora_entrada">
+				</div>
+				<div class="form-group">
+					<label> Hora Salida </label>
+					<input type="time" class="form-control" name="hora_salida">
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary"> Guardar </button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

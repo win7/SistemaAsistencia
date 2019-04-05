@@ -8,7 +8,7 @@
  * https://sailsjs.com/anatomy/config/routes-js
  */
 
-module.exports.routes = {
+ module.exports.routes = {
 
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
@@ -62,55 +62,159 @@ module.exports.routes = {
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
 
-  /* PERSONA */
-  'GET /nuevo_persona': {
-    controller: 'persona',
+  /* ÁREA */
+  'GET /nueva_area': {
+  	controller: 'Area',
+  	action: "nuevo"
+  },
+  'POST /crear_area': {
+  	controller: 'Area',
+  	action: "crear"
+  },
+  'GET /buscar_area/:id': {
+  	controller: 'Area',
+  	action: "buscar"
+  },
+  'GET /listar_areas': {
+  	controller: 'Area',
+  	action: "listar"
+  },
+  'POST /actualizar_area': {
+  	controller: 'Area',
+  	action: "actualizar"
+  },
+  'GET /eliminar_area/:id': {
+  	controller: 'Area',
+  	action: "eliminar"
+  },
+
+  /* Salario*/
+  'GET /nuevo_salario': {
+    controller: 'Salario',
     action: "nuevo"
   },
-  'POST /crear_persona': {
-    controller: 'persona',
+  'POST /crear_salario': {
+    controller: 'Salario',
     action: "crear"
   },
-  'GET /buscar_persona/:id': {
-    controller: 'persona',
+  'GET /buscar_salario/:id': {
+    controller: 'Salario',
     action: "buscar"
   },
-  'GET /listar_personas': {
-    controller: 'persona',
+  'GET /listar_salarios': {
+    controller: 'Salario',
     action: "listar"
   },
-  'POST /actualizar_persona': {
-    controller: 'persona',
+  'POST /actualizar_salario': {
+    controller: 'Salario',
     action: "actualizar"
   },
-  'GET /eliminar_persona/:id': {
-    controller: 'persona',
+  'GET /eliminar_salario/:id': {
+    controller: 'Salario',
+    action: "eliminar"
+  },
+  
+  /* Horario*/
+  'GET /nuevo_horario': {
+    controller: 'Horario',
+    action: "nuevo"
+  },
+  'POST /crear_horario': {
+    controller: 'Horario',
+    action: "crear"
+  },
+  'GET /buscar_horario/:id': {
+    controller: 'Horario',
+    action: "buscar"
+  },
+  'GET /listar_horarios': {
+    controller: 'Horario',
+    action: "listar"
+  },
+  'POST /actualizar_horario': {
+    controller: 'Horario',
+    action: "actualizar"
+  },
+  'GET /eliminar_horario/:id': {
+    controller: 'Horario',
     action: "eliminar"
   },
 
-  /* ÁREA */
-  'GET /nuevo_area': {
-    controller: 'area',
+  /* Personal*/
+  'GET /nuevo_personal': {
+    controller: 'Personal',
     action: "nuevo"
   },
-  'POST /crear_area': {
-    controller: 'area',
+  'POST /crear_personal': {
+    controller: 'Personal',
     action: "crear"
   },
-  'GET /buscar_area/:id': {
-    controller: 'area',
+  'GET /buscar_personal/:id': {
+    controller: 'Personal',
     action: "buscar"
   },
-  'GET /listar_areas': {
-    controller: 'area',
+  'GET /listar_personal': {
+    controller: 'Personal',
     action: "listar"
   },
-  'POST /actualizar_area': {
-    controller: 'area',
+  'POST /actualizar_personal': {
+    controller: 'Personal',
     action: "actualizar"
   },
-  'GET /eliminar_area/:id': {
-    controller: 'area',
+  'GET /eliminar_personal/:id': {
+    controller: 'Personal',
+    action: "eliminar"
+  },
+
+  /* Asistencia*/
+  'GET /nueva_asistencia': {
+    controller: 'Asistencia',
+    action: "nuevo"
+  },
+  'POST /crear_asistencia': {
+    controller: 'Asistencia',
+    action: "crear"
+  },
+  'GET /buscar_asistencia/:id': {
+    controller: 'Asistencia',
+    action: "buscar"
+  },
+  'GET /listar_asistencias': {
+    controller: 'Asistencia',
+    action: "listar"
+  },
+  'POST /actualizar_asistencia': {
+    controller: 'Asistencia',
+    action: "actualizar"
+  },
+  'GET /eliminar_asistencia/:id': {
+    controller: 'Asistencia',
+    action: "eliminar"
+  },
+
+  /* Sancion*/
+  'GET /nueva_sancion': {
+    controller: 'Sancion',
+    action: "nuevo"
+  },
+  'POST /crear_sancion': {
+    controller: 'Sancion',
+    action: "crear"
+  },
+  'GET /buscar_sancion/:id': {
+    controller: 'Sancion',
+    action: "buscar"
+  },
+  'GET /listar_sanciones': {
+    controller: 'Sancion',
+    action: "listar"
+  },
+  'POST /actualizar_sancion': {
+    controller: 'Sancion',
+    action: "actualizar"
+  },
+  'GET /eliminar_sancion/:id': {
+    controller: 'Sancion',
     action: "eliminar"
   },
 };

@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h4 class="text-center"> <%= titulo %> </h4>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th> Id </th>
+							<th> DNI </th>
+							<th> Nombre </th>
+							<th> Apellidos </th>
+							<th> Teléfono </th>
+							<th> Dirección </th>
+							<th> Email </th>
+							<th> Cargo </th>
+							<th> Área </th>
+							<th> Salario </th>
+							<th> Horario </th>
+							<th> Acción </th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(var i = 0; i < personal.length; i++) {
+						var item = personal[i];
+						%>
+						<tr>
+							<!-- <td><a href="/find_one/<%= item.id %>"> <%= item.id %> </a></td> -->
+							<td> <%= item.id %> </td>
+							<td> <%= item.dni %> </td>
+							<td> <%= item.nombre %> </td>
+							<td> <%= item.apellidos %> </td>
+							<td> <%= item.telefono %> </td>
+							<td> <%= item.direccion %> </td>
+							<td> <%= item.email %> </td>
+							<td> <%= item.cargo %> </td>
+							<td> <%= item.area %> </td>
+							<td> <%= item.salario %> </td>
+							<td> <%= item.horario %> </td>
+							<td>
+								<a href="/buscar_personal/<%= item.id %>"> Actualizar </a>
+								/
+								<a href="/eliminar_personal/<%= item.id %>"> Eliminar </a>
+							</td>
+						</tr>
+						<% } %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

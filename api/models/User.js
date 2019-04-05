@@ -21,6 +21,28 @@ module.exports = {
       example: 'mary.sue@example.com'
     },
 
+    password: {
+      type: 'string',
+      required: true,
+      description: 'Securely hashed representation of the user\'s login password.',
+      protect: true,
+      example: '2$28a8eabna301089103-13948134nad'
+    },
+
+    fullName: {
+      type: 'string',
+      required: true,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 120,
+      example: 'Mary Sue van der McHenst'
+    },
+
+    privilege: {
+      type: "string",
+      isIn: ["Administrador", "Invitado"],
+      defaultsTo: 'Invitado'
+    },
+
     emailStatus: {
       type: 'string',
       isIn: ['unconfirmed', 'change-requested', 'confirmed'],
@@ -38,22 +60,6 @@ email status until they click the link in the confirmation email.`
       type: 'string',
       isEmail: true,
       description: 'A still-unconfirmed email address that this user wants to change to (if relevant).'
-    },
-
-    password: {
-      type: 'string',
-      required: true,
-      description: 'Securely hashed representation of the user\'s login password.',
-      protect: true,
-      example: '2$28a8eabna301089103-13948134nad'
-    },
-
-    fullName: {
-      type: 'string',
-      required: true,
-      description: 'Full representation of the user\'s name.',
-      maxLength: 120,
-      example: 'Mary Sue van der McHenst'
     },
 
     isSuperAdmin: {

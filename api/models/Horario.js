@@ -12,21 +12,19 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    id_horario: {
-        type: "number",
-        unique: true,
-        required: true
-    },
+
     turno: {
         type: "string",
         isIn: ["Mañana", "Tarde", "Noche"]
     },
     hora_entrada: {
         type: "string",
+        columnType: "TIME",
         required: true
     },
     hora_salida: {
         type: "string",
+        columnType: "TIME",
         required: true
     },
 
@@ -39,8 +37,8 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
-    asistencias: {
-        collection: "Asistencia",
+    personal: {
+        collection: "Personal",
         via: "horario"
     }
 
