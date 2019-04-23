@@ -22,7 +22,7 @@
 							<td> <%= item.id %> </td>
 							<td> <%= item.fecha.toISOString().substr(0, 10)  %> </td>
 							<td> <%= item.hora %> </td>
-							<td> <%= item.personal %> </td>
+							<td> <%= item.personal.nombre %> <%= item.personal.apellidos %> </td>
 							<td>
 								<a href="/buscar_asistencia/<%= item.id %>"> Actualizar </a>
 								/

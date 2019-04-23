@@ -24,7 +24,7 @@
 							<td> <%= item.fecha.toISOString().substr(0, 10)  %> </td>
 							<td> <%= item.hora %> </td>
 							<td> <%= item.causa %> </td>
-							<td> <%= item.personal %> </td>
+							<td> <%= item.personal.nombre %> <%= item.personal.apellidos %> </td>
 							<td>
 								<a href="/buscar_sancion/<%= item.id %>"> Actualizar </a>
 								/

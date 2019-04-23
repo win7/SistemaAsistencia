@@ -6,10 +6,15 @@
  */
 
 module.exports = {
-    nuevo: function (req, res) {
+    nuevo: async function (req, res) {
         console.log("Nueva: Asistencia " + JSON.stringify(req.allParams()));
+        var personales_ = await Personal.find({
+            select: ["id", "nombre", "apellidos"],
+            sort: "id ASC"
+        });
         return res.view("asistencia/nuevo", {
-            titulo: "Nueva Asistencia"
+            titulo: "Nueva Asistencia",
+            personales: personales_
         });
     },
 
@@ -27,8 +32,12 @@ module.exports = {
         });
     },
 
-    buscar: function (req, res) {
+    buscar: async function (req, res) {
         console.log("Buscar: Asistencia " + JSON.stringify(req.allParams()));
+        var personales_ = await Personal.find({
+            select: ["id", "nombre", "apellidos"],
+            sort: "id ASC"
+        });
         Asistencia.findOne({
             where: {id: req.param("id")}
         })
@@ -36,7 +45,8 @@ module.exports = {
             if (_asistencia) {
                 return res.view("asistencia/actualizar", {
                     titulo: "Editar Asistencia",
-                    asistencia: _asistencia
+                    asistencia: _asistencia,
+                    personales: personales_
                 });
             } else {
                 return res.notFound();
@@ -51,7 +61,7 @@ module.exports = {
         console.log("Listar: Asistencias " + JSON.stringify(req.allParams()));
         Asistencia.find({
             sort: "id ASC"
-        })
+        }).populate("personal")
         .then(function (_asistencia) {
             return res.view("asistencia/listar", {
                 titulo: "Listar Asistencias",

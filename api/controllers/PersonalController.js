@@ -6,10 +6,25 @@
  */
 
 module.exports = {
-    nuevo: function (req, res) {
+    nuevo: async function (req, res) {
         console.log("Nuevo: Personal " + JSON.stringify(req.allParams()));
+        var areas_ = await Area.find({
+            select: ["id", "nombre"],
+            sort: "id ASC"
+        });
+        var salarios_ = await Salario.find({
+            select: ["id", "sueldo"],
+            sort: "id ASC"
+        });
+        var horarios_ = await Horario.find({
+            select: ["id", "turno"],
+            sort: "id ASC"
+        });
         return res.view("personal/nuevo", {
-            titulo: "Nuevo Personal"
+            titulo: "Nuevo Personal",
+            areas: areas_,
+            salarios: salarios_,
+            horarios: horarios_
         });
     },
 
@@ -27,8 +42,20 @@ module.exports = {
         });
     },
 
-    buscar: function (req, res) {
+    buscar: async function (req, res) {
         console.log("Buscar: Personal " + JSON.stringify(req.allParams()));
+        var areas_ = await Area.find({
+            select: ["id", "nombre"],
+            sort: "id ASC"
+        });
+        var salarios_ = await Salario.find({
+            select: ["id", "sueldo"],
+            sort: "id ASC"
+        });
+        var horarios_ = await Horario.find({
+            select: ["id", "turno"],
+            sort: "id ASC"
+        });
         Personal.findOne({
             where: {id: req.param("id")}
         })
@@ -36,7 +63,10 @@ module.exports = {
             if (_personal) {
                 return res.view("personal/actualizar", {
                     titulo: "Editar Personal",
-                    personal: _personal
+                    personal: _personal,
+                    areas: areas_,
+                    salarios: salarios_,
+                    horarios: horarios_
                 });
             } else {
                 return res.notFound();
@@ -51,8 +81,9 @@ module.exports = {
         console.log("Listar: Personal " + JSON.stringify(req.allParams()));
         Personal.find({
             sort: "id ASC"
-        })//.populate("area").populate("salario")
+        }).populate("area").populate("salario").populate("horario")
         .then(function (_personal) {
+            // console.log(_personal);
             return res.view("personal/listar", {
                 titulo: "Listar Personal",
                 personal: _personal

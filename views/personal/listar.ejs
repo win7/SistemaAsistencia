@@ -34,9 +34,9 @@
 							<td> <%= item.direccion %> </td>
 							<td> <%= item.email %> </td>
 							<td> <%= item.cargo %> </td>
-							<td> <%= item.area %> </td>
-							<td> <%= item.salario %> </td>
-							<td> <%= item.horario %> </td>
+							<td> <%= item.area.nombre %> </td>
+							<td> <%= item.salario.sueldo %> </td>
+							<td> <%= item.horario.turno %> </td>
 							<td>
 								<a href="/buscar_personal/<%= item.id %>"> Actualizar </a>
 								/

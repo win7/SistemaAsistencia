@@ -6,10 +6,15 @@
  */
 
 module.exports = {
-    nuevo: function (req, res) {
+    nuevo: async function (req, res) {
         console.log("Nueva: Sanción " + JSON.stringify(req.allParams()));
+        var personales_ = await Personal.find({
+            select: ["id", "nombre", "apellidos"],
+            sort: "id ASC"
+        });
         return res.view("sancion/nuevo", {
-            titulo: "Nueva Sanción"
+            titulo: "Nueva Sanción",
+            personales: personales_
         });
     },
 
@@ -27,8 +32,12 @@ module.exports = {
         });
     },
 
-    buscar: function (req, res) {
+    buscar: async function (req, res) {
         console.log("Buscar: Sanción " + JSON.stringify(req.allParams()));
+        var personales_ = await Personal.find({
+            select: ["id", "nombre", "apellidos"],
+            sort: "id ASC"
+        });
         Sancion.findOne({
             where: {id: req.param("id")}
         })
@@ -36,7 +45,8 @@ module.exports = {
             if (_sancion) {
                 return res.view("sancion/actualizar", {
                     titulo: "Editar Sanción",
-                    sancion: _sancion
+                    sancion: _sancion,
+                    personales: personales_
                 });
             } else {
                 return res.notFound();
@@ -51,7 +61,7 @@ module.exports = {
         console.log("Listar: Sancións " + JSON.stringify(req.allParams()));
         Sancion.find({
             sort: "id ASC"
-        })
+        }).populate("personal")
         .then(function (_sancion) {
             return res.view("sancion/listar", {
                 titulo: "Listar Sanciones",

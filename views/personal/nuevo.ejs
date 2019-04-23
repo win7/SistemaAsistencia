@@ -38,15 +38,33 @@
 				</div>
 				<div class="form-group">
 					<label> Área </label>
-					<input type="text" class="form-control" name="area">
+					<select class="form-control" name="area">
+					<% for(var i = 0; i < areas.length; i++) {
+					var item = areas[i];
+					%>
+						<option value="<%= item.id %>"> <%= item.nombre %> </option>
+					<% } %>
+					</select>
 				</div>
 				<div class="form-group">
 					<label> Salario </label>
-					<input type="text" class="form-control" name="salario">
+					<select class="form-control" name="salario">
+					<% for(var i = 0; i < salarios.length; i++) {
+					var item = salarios[i];
+					%>
+						<option value="<%= item.id %>"> <%= item.sueldo %> </option>
+					<% } %>
+					</select>
 				</div>
 				<div class="form-group">
 					<label> Horario </label>
-					<input type="text" class="form-control" name="horario">
+					<select class="form-control" name="horario">
+					<% for(var i = 0; i < horarios.length; i++) {
+					var item = horarios[i];
+					%>
+						<option value="<%= item.id %>"> <%= item.turno %> </option>
+					<% } %>
+					</select>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary"> Guardar </button>

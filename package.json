@@ -12,6 +12,7 @@
     "sails-hook-apianalytics": "^2.0.3",
     "sails-hook-organics": "^0.15.0",
     "sails-hook-orm": "^2.1.1",
+    "sails-hook-pdf": "0.0.7",
     "sails-hook-sockets": "^1.5.5",
     "sails-mysql": "^1.0.1",
     "sails-postgresql": "^1.0.2"
