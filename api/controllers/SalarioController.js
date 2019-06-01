@@ -47,6 +47,32 @@ module.exports = {
         });
     },
 
+    buscarpor: function (req, res) {
+        console.log("Buscar por: Salario " + JSON.stringify(req.allParams()));
+        var atributo = req.param("atributo");
+        var valor = req.param("valor");
+        var consulta = {};
+        if (valor == "") {
+            consulta["sort"] = "id ASC";
+        } else {
+            consulta[atributo] = valor;
+        }
+        Salario.find(consulta)
+        .then(function (_salario) {
+            if (_salario) {
+                return res.view("salario/listar", {
+                    titulo: "Listar Salarios",
+                    salario: _salario
+                });
+            } else {
+                return res.notFound();
+            }
+        })
+        .catch(function (err) {
+            return res.serverError(err);
+        });
+    },
+
     listar: function (req, res) {
         console.log("Listar: Salarios " + JSON.stringify(req.allParams()));
         Salario.find({

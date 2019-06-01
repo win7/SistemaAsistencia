@@ -47,6 +47,32 @@ module.exports = {
         });
     },
 
+    buscarpor: function (req, res) {
+        console.log("Buscar por: Área " + JSON.stringify(req.allParams()));
+        var atributo = req.param("atributo");
+        var valor = req.param("valor");
+        var consulta = {};
+        if (valor == "") {
+            consulta["sort"] = "id ASC";
+        } else {
+            consulta[atributo] = {contains: String(valor)};
+        }
+        Area.find(consulta)
+        .then(function (_area) {
+            if (_area) {
+                return res.view("area/listar", {
+                    titulo: "Listar Áreas",
+                    area: _area
+                });
+            } else {
+                return res.notFound();
+            }
+        })
+        .catch(function (err) {
+            return res.serverError(err);
+        });
+    },
+
     listar: function (req, res) {
         console.log("Listar: Áreas " + JSON.stringify(req.allParams()));
         Area.find({

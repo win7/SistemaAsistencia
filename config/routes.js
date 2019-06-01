@@ -75,6 +75,10 @@
   	controller: 'Area',
   	action: "buscar"
   },
+  'GET /buscar_area_por/': {
+    controller: 'Area',
+    action: "buscarpor"
+  },
   'GET /listar_areas': {
   	controller: 'Area',
   	action: "listar"
@@ -101,6 +105,10 @@
     controller: 'Salario',
     action: "buscar"
   },
+  'GET /buscar_salario_por/': {
+    controller: 'Salario',
+    action: "buscarpor"
+  },
   'GET /listar_salarios': {
     controller: 'Salario',
     action: "listar"
@@ -126,6 +134,10 @@
   'GET /buscar_horario/:id': {
     controller: 'Horario',
     action: "buscar"
+  },
+  'GET /buscar_horario_por/': {
+    controller: 'Horario',
+    action: "buscarpor"
   },
   'GET /listar_horarios': {
     controller: 'Horario',

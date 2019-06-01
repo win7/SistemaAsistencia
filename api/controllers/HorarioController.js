@@ -47,6 +47,36 @@ module.exports = {
         });
     },
 
+    buscarpor: function (req, res) {
+        console.log("Buscar por: Horario " + JSON.stringify(req.allParams()));
+        var atributo = req.param("atributo");
+        var valor = req.param("valor");
+        var consulta = {};
+        if (valor == "") {
+            consulta["sort"] = "id ASC";
+        } else {
+            if (atributo == "turno") {
+                consulta[atributo] = {contains: valor};
+            } else {
+                consulta[atributo] = valor;
+            }
+        }
+        Horario.find(consulta)
+        .then(function (_horario) {
+            if (_horario) {
+                return res.view("horario/listar", {
+                    titulo: "Listar Horarios",
+                    horario: _horario
+                });
+            } else {
+                return res.notFound();
+            }
+        })
+        .catch(function (err) {
+            return res.serverError(err);
+        });
+    },
+
     listar: function (req, res) {
         console.log("Listar: Horarios " + JSON.stringify(req.allParams()));
         Horario.find({
